@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title></title>
+
+<h1>Top 20</h1>
+<div id="_data">{{ users }}</div>
+
+<ul id="list"></ul>
+
+<script>
+    window.onload = function() {
+        const div = document.getElementById('_data');
+        const list = document.getElementById('list');
+        const json = JSON.parse(div.innerHTML)
+
+        div.outerHTML = "";
+
+        console.log(json)
+
+        json.forEach(function(item) {
+            li = document.createElement('li');
+            li.innerHTML = '#' + item.user + ':\t' + item.salary + '€ / year<br>skills: ' + item.languages.join(', ')
+            list.appendChild(li)
+        });
+    }
+</script>

@@ -69,6 +69,6 @@ class Suggestions:
 
     @staticmethod
     # get top 15 most earning users
-    def get_top_users(_results):
-        return format_records_for_fe(_results.sort_values('salary', ascending=False).head(15).to_dict('records'))
+    def get_top_users(_results, _count=15):
+        return format_records_for_fe(_results.sort_values('salary', ascending=False).head(_count).to_dict('records'))
 

@@ -1,6 +1,7 @@
 import suggestions
+import json
 import create_csv
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, url_for
 from flask_cors import CORS
 from meta_handler import MetaHandler
 from suggestions import Suggestions
@@ -17,6 +18,13 @@ results = create_csv.load_csv()
 
 
 # --- define routes ---
+
+@app.route('/', methods=['GET'])
+def index():
+    suggs = sugg.get_top_users(results, 20)
+
+    return render_template('index.html', users=json.dumps(suggs))
+
 
 @app.route('/suggestions', methods=['POST'])
 def get_suggestions():
@@ -47,3 +55,5 @@ def get_top_users():
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
 
+# generate html asset urls
+url_for('static', filename='style.css')
