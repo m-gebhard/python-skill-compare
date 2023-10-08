@@ -1,0 +1,6 @@
+CurrencyConverter
+flask
+flask_cors
+matplotlib
+numpy
+pandas

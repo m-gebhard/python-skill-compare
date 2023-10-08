@@ -32,10 +32,10 @@ body: {
 Because the original dataset is too large to upload to the repository, the aggregated csv has been saved instead.
 The function for creating the dataset from the survey csv is: aggregate_csv_data (create_csv.py)
 
-## Resources
+## Project setup
+`docker build -t python-skill-compare .`
 
-### initial used dataset
-[Stack Overflow Developer Survey 2020](https://insights.stackoverflow.com/survey)
+`docker run -p 5000:5000 -it python-skill-compare`
 
 ## Dependencies
 `CurrencyConverter 0.14.4`
@@ -44,3 +44,8 @@ The function for creating the dataset from the survey csv is: aggregate_csv_data
 `matplotlib >= 3.3.3`
 `numpy 1.19.5`
 `pandas >= 1.2.0`
+
+## Resources
+
+### initial used dataset
+[Stack Overflow Developer Survey 2020](https://insights.stackoverflow.com/survey)
